@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const BackgroundVideo = () => {
   return (
@@ -15,6 +17,14 @@ const BackgroundVideo = () => {
 };
 
 const MarvelView = () => {
+  useEffect(() => {
+    AOS.init({
+      disable: false,
+      offset: 200,
+      duration: 1000,
+    });
+  }, []);
+
   return (
     <Container style={{ height: "100vh", width: "100vw" }}>
       <Row>
@@ -36,6 +46,9 @@ const MarvelView = () => {
               }}
             >
               <div
+                data-aos="fade-down"
+                data-aos-offset="300"
+                data-aos-duration="3000"
                 style={{ marginBottom: 10, marginTop: -150, color: "white" }}
               >
                 <h1>Marvel Universe</h1>
