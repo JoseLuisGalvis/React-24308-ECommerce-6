@@ -23,6 +23,7 @@ const App = () => {
       <CustomNavbar />
       <MarvelView />
       <Section
+        data-aos="fade-right"
         id="comics"
         title="Comics"
         cards={[
@@ -47,10 +48,9 @@ const App = () => {
             text: "Lorem ipsum dolor sit amet",
           },
         ]}
-        className="aos-animate"
-        data-aos="fade-right"
       />
       <Section
+        data-aos="fade-right"
         id="movies"
         title="Movies"
         cards={[
@@ -75,10 +75,9 @@ const App = () => {
             text: "Lorem ipsum dolor sit amet",
           },
         ]}
-        className="aos-animate"
-        data-aos="fade-right"
       />
       <Section
+        data-aos="fade-right"
         id="characters"
         title="Characters"
         cards={[
@@ -103,8 +102,6 @@ const App = () => {
             text: "Lorem ipsum dolor sit amet",
           },
         ]}
-        className="aos-animate"
-        data-aos="fade-right"
       />
       <Footer />
     </div>
