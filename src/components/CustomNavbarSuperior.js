@@ -1,31 +1,61 @@
-import React from "react";
-import { Container, Nav, NavItem, NavLink } from "reactstrap";
+import React, { useState } from "react";
+import {
+  Container,
+  Nav,
+  NavItem,
+  NavLink,
+  Modal,
+  Button,
+  Alert,
+} from "reactstrap";
 
 const CustomNavbarSuperior = () => {
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
+
   return (
     <Container>
-      <Nav className="navbar-superior d-flex justify-content-center ml-auto">
+      <Nav className="navbar-superior d-flex justify-content-between ml-auto">
         <NavItem>
           <NavLink href="#inicio">Log In | Join</NavLink>
         </NavItem>
         <NavItem className="logo">
-          <NavLink href="#inicio">
+          <NavLink
+            href="#inicio"
+            onMouseEnter={() => setModal(true)}
+            onMouseLeave={() => setTimeout(() => setModal(false), 5000)}
+          >
             <img
               src={`${process.env.PUBLIC_URL}/images/marvel.jpeg`}
               alt="Marvel Logo"
-              height="55"
+              height="60"
+              style={{ cursor: "pointer" }}
             />
           </NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="#inicio">Marvel Unlimited</NavLink>
         </NavItem>
-        <NavItem>
-          <NavLink href="#inicio">
-            <i className="fas fa-search search-icon" />
-          </NavLink>
-        </NavItem>
       </Nav>
+
+      {/* Modal */}
+      <Modal isOpen={modal} toggle={toggle} centered>
+        <div className="modal-header">
+          <h5 className="modal-title">Welcome!</h5>
+          <button type="button" className="close" onClick={toggle}>
+            &times;
+          </button>
+        </div>
+        <div className="modal-body">
+          <Alert color="info">You are in the Wonderful World of MARVEL</Alert>
+        </div>
+        <div className="modal-footer">
+          <Button color="primary" onClick={toggle}>
+            Close
+          </Button>{" "}
+        </div>
+      </Modal>
     </Container>
   );
 };

@@ -26,10 +26,10 @@ const MarvelView = () => {
   }, []);
 
   return (
-    <Container style={{ height: "100vh", width: "100vw" }}>
+    <Container>
       <Row>
         <Col md="12">
-          <div style={{ position: "relative", height: "100vh" }}>
+          <div style={{ position: "relative", height: "80vh" }}>
             <BackgroundVideo />
             <div
               className="vertical-center horizontal-center"
@@ -49,7 +49,7 @@ const MarvelView = () => {
                 data-aos="fade-down"
                 data-aos-offset="300"
                 data-aos-duration="3000"
-                style={{ marginBottom: 10, marginTop: -150, color: "white" }}
+                style={{ marginBottom: 10, marginTop: -50, color: "white" }}
               >
                 <h1>Marvel Universe</h1>
                 <p>Welcome to the Marvel Universe!</p>

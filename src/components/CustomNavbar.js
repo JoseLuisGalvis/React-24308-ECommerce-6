@@ -1,11 +1,11 @@
 import React from "react";
-import { Navbar, Nav, NavItem, Container } from "reactstrap";
+import { Container, Navbar, Nav, NavItem } from "reactstrap";
 
 const CustomNavbar = () => {
   return (
     <Container>
-      <Navbar className="navbar d-flex justify-content-center" expand="md">
-        <Nav>
+      <Navbar className="navbar w-100" expand="lg">
+        <Nav className="d-flex justify-content-center w-100">
           <NavItem>
             <a className="nav-link" href="#inicio">
               <p>Inicio</p>
