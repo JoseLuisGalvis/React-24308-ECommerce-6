@@ -6,7 +6,6 @@ body {
 }
 
 .container {
-  display: flex;
   align-items: center !important;
   justify-content: center !important;
   max-width: 1200px;
@@ -21,6 +20,16 @@ body {
   padding: 10px;
   display: flex;
   align-items: center;
+}
+
+/* Media queries para responsividad */
+/* Media queries para responsividad */
+@media (max-width: 325px) {
+  .navbar-superior {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+  }
 }
 
 .navbar-superior .nav-item {
@@ -134,29 +143,93 @@ body {
   color: #666;
 }
 
+/**************************************************/
+
 .footer {
-  display: flex;
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerRow {
+  background-color: #333;
+  width: 33%;
+}
+
+.footer-section {
   text-align: center;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
-#row-footer {
-  padding-top: 24px !important;
-  padding-bottom: 8px !important;
+.footer-section h4 {
+  margin-bottom: 10px;
 }
 
-.footer a {
+.footer-section h6 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.contact {
+  margin-top: -5px;
+}
+
+.contactText {
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.contactText:hover {
+  cursor: url(./../public/images/cursor.png), auto;
+  text-shadow: 0 5px 8px rgba(242, 68, 68, 0.5);
+}
+
+.redes-sociales {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-section h4 {
+  font-size: clamp(10px, 2vw + 1rem, 24px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-section h6 {
+  font-size: clamp(8px, 2vw + 1rem, 16px);
+}
+
+.footer-section h4:hover {
+  font-weight: bold;
+  cursor: url(./../public/images/cursor.png), auto;
+  text-shadow: 0 5px 8px rgba(242, 68, 68, 0.5);
+  transform: scale(1.1);
+}
+
+.redes-sociales .icon {
+  font-size: 2em;
+  margin: 0 15px;
   color: #fff;
-  text-decoration: none;
+  transition: transform 0.3s ease-in-out;
 }
 
-.footer a:hover {
+.redes-sociales .icon:hover {
   color: #ccc;
+  font-weight: bold;
+  cursor: url(./../public/images/cursor.png), auto;
+  filter: drop-shadow(0 5px 8px rgba(242, 68, 68, 0.5));
+  transform: scale(1.2);
 }
 
-.redes-sociales a {
-  padding: 1em;
-  color: #333;
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .footer-section {
+    margin-bottom: 10px;
+  }
+  .redes-sociales a {
+    margin: 0 5px;
+  }
 }
