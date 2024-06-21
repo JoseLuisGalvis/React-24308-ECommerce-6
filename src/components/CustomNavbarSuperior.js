@@ -10,9 +10,18 @@ import {
 } from "reactstrap";
 
 const CustomNavbarSuperior = () => {
-  const [modal, setModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setModal(!modal);
+  const toggle = () => setIsOpen(!isOpen);
+
+  const handleMouseEnter = () => setIsOpen(true);
+
+  const handleMouseLeave = () => {
+    const timer = setTimeout(() => {
+      setIsOpen(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  };
 
   return (
     <Container>
@@ -23,8 +32,8 @@ const CustomNavbarSuperior = () => {
         <NavItem className="logo">
           <NavLink
             href="#inicio"
-            onMouseEnter={() => setModal(true)}
-            onMouseLeave={() => setTimeout(() => setModal(false), 5000)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <img
               src={`${process.env.PUBLIC_URL}/images/marvel.jpeg`}
@@ -40,7 +49,7 @@ const CustomNavbarSuperior = () => {
       </Nav>
 
       {/* Modal */}
-      <Modal isOpen={modal} toggle={toggle} centered>
+      <Modal isOpen={isOpen} toggle={toggle} centered>
         <div className="modal-header">
           <h5 className="modal-title">Welcome!</h5>
           <button type="button" className="close" onClick={toggle}>
