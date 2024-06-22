@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, createRef } from "react";
 import CustomNavbarSuperior from "./components/CustomNavbarSuperior";
 import CustomNavbar from "./components/CustomNavbar";
 import MarvelView from "./components/MarvelView";
@@ -9,6 +9,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const App = () => {
+  const comicsRef = createRef();
+  const moviesRef = createRef();
+  const charactersRef = createRef();
+
   useEffect(() => {
     AOS.init({
       disable: false,
@@ -20,11 +24,16 @@ const App = () => {
   return (
     <div>
       <CustomNavbarSuperior />
-      <CustomNavbar />
+      <CustomNavbar
+        comicsRef={comicsRef}
+        moviesRef={moviesRef}
+        charactersRef={charactersRef}
+      />
       <MarvelView />
       <Section
-        data-aos="fade-right"
+        ref={comicsRef}
         id="comics"
+        data-aos="fade-right"
         title="Comics"
         cards={[
           {
@@ -50,8 +59,9 @@ const App = () => {
         ]}
       />
       <Section
-        data-aos="fade-right"
+        ref={moviesRef}
         id="movies"
+        data-aos="fade-right"
         title="Movies"
         cards={[
           {
@@ -77,8 +87,9 @@ const App = () => {
         ]}
       />
       <Section
-        data-aos="fade-right"
+        ref={charactersRef}
         id="characters"
+        data-aos="fade-right"
         title="Characters"
         cards={[
           {
